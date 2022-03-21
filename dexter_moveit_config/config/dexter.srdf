@@ -1,0 +1,131 @@
+<?xml version="1.0" ?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="dexter">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="dexter">
+        <chain base_link="kp0093_1" tip_link="kp0093_1_186_kp0093-01_toolinterface" />
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="home" group="dexter">
+        <joint name="J1" value="0" />
+        <joint name="J2" value="0" />
+        <joint name="J3" value="0" />
+        <joint name="J4" value="0" />
+        <joint name="J5" value="0" />
+    </group_state>
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="world_base_joint" type="fixed" parent_frame="world" child_link="kp0093_1" />
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="kp0093_1_12_kp0077-01_diffbodysmallb" link2="kp0093_1_135_kp0069-01_forarmbeam" reason="Never" />
+    <disable_collisions link1="kp0093_1_12_kp0077-01_diffbodysmallb" link2="kp0093_1_165_kp0047-01_axisintersectionhalfsm" reason="Never" />
+    <disable_collisions link1="kp0093_1_12_kp0077-01_diffbodysmallb" link2="kp0093_1_183_kp0013-01_mainpivotv2" reason="Never" />
+    <disable_collisions link1="kp0093_1_12_kp0077-01_diffbodysmallb" link2="kp0093_1_185_kp0005-01_botbasestatorbracket" reason="Never" />
+    <disable_collisions link1="kp0093_1_12_kp0077-01_diffbodysmallb" link2="kp0093_1_186_kp0093-01_toolinterface" reason="Never" />
+    <disable_collisions link1="kp0093_1_12_kp0077-01_diffbodysmallb" link2="kp0093_1_230_kp0028-01_armbodybottom" reason="Never" />
+    <disable_collisions link1="kp0093_1_12_kp0077-01_diffbodysmallb" link2="kp0093_1_237_kp0066-01_endarmhubbottom" reason="Never" />
+    <disable_collisions link1="kp0093_1_12_kp0077-01_diffbodysmallb" link2="kp0093_1_24_kp0006-01_baselite" reason="Never" />
+    <disable_collisions link1="kp0093_1_12_kp0077-01_diffbodysmallb" link2="kp0093_1_2_kp0070-01_endaxishubc" reason="Never" />
+    <disable_collisions link1="kp0093_1_12_kp0077-01_diffbodysmallb" link2="kp0093_1_301_kp0053-01_compositebarshoulder" reason="Never" />
+    <disable_collisions link1="kp0093_1_12_kp0077-01_diffbodysmallb" link2="kp0093_1_322_kp0079-01_diffa2codediskendstopfilled" reason="Adjacent" />
+    <disable_collisions link1="kp0093_1_12_kp0077-01_diffbodysmallb" link2="kp0093_1_33_kp0021-01_motorendcappivot" reason="Never" />
+    <disable_collisions link1="kp0093_1_12_kp0077-01_diffbodysmallb" link2="kp0093_1_48_kp0048-01_axisintersectionhalfsm_b" reason="Never" />
+    <disable_collisions link1="kp0093_1_12_kp0077-01_diffbodysmallb" link2="kp0093_1_87_kp0086-01_outterfrontdifferentialgear" reason="Adjacent" />
+    <disable_collisions link1="kp0093_1_135_kp0069-01_forarmbeam" link2="kp0093_1_165_kp0047-01_axisintersectionhalfsm" reason="Never" />
+    <disable_collisions link1="kp0093_1_135_kp0069-01_forarmbeam" link2="kp0093_1_183_kp0013-01_mainpivotv2" reason="Never" />
+    <disable_collisions link1="kp0093_1_135_kp0069-01_forarmbeam" link2="kp0093_1_185_kp0005-01_botbasestatorbracket" reason="Never" />
+    <disable_collisions link1="kp0093_1_135_kp0069-01_forarmbeam" link2="kp0093_1_186_kp0093-01_toolinterface" reason="Never" />
+    <disable_collisions link1="kp0093_1_135_kp0069-01_forarmbeam" link2="kp0093_1_230_kp0028-01_armbodybottom" reason="Never" />
+    <disable_collisions link1="kp0093_1_135_kp0069-01_forarmbeam" link2="kp0093_1_237_kp0066-01_endarmhubbottom" reason="Adjacent" />
+    <disable_collisions link1="kp0093_1_135_kp0069-01_forarmbeam" link2="kp0093_1_24_kp0006-01_baselite" reason="Never" />
+    <disable_collisions link1="kp0093_1_135_kp0069-01_forarmbeam" link2="kp0093_1_2_kp0070-01_endaxishubc" reason="Adjacent" />
+    <disable_collisions link1="kp0093_1_135_kp0069-01_forarmbeam" link2="kp0093_1_301_kp0053-01_compositebarshoulder" reason="Never" />
+    <disable_collisions link1="kp0093_1_135_kp0069-01_forarmbeam" link2="kp0093_1_322_kp0079-01_diffa2codediskendstopfilled" reason="Never" />
+    <disable_collisions link1="kp0093_1_135_kp0069-01_forarmbeam" link2="kp0093_1_33_kp0021-01_motorendcappivot" reason="Never" />
+    <disable_collisions link1="kp0093_1_135_kp0069-01_forarmbeam" link2="kp0093_1_48_kp0048-01_axisintersectionhalfsm_b" reason="Never" />
+    <disable_collisions link1="kp0093_1_135_kp0069-01_forarmbeam" link2="kp0093_1_87_kp0086-01_outterfrontdifferentialgear" reason="Never" />
+    <disable_collisions link1="kp0093_1_165_kp0047-01_axisintersectionhalfsm" link2="kp0093_1_183_kp0013-01_mainpivotv2" reason="Never" />
+    <disable_collisions link1="kp0093_1_165_kp0047-01_axisintersectionhalfsm" link2="kp0093_1_185_kp0005-01_botbasestatorbracket" reason="Never" />
+    <disable_collisions link1="kp0093_1_165_kp0047-01_axisintersectionhalfsm" link2="kp0093_1_186_kp0093-01_toolinterface" reason="Never" />
+    <disable_collisions link1="kp0093_1_165_kp0047-01_axisintersectionhalfsm" link2="kp0093_1_230_kp0028-01_armbodybottom" reason="Never" />
+    <disable_collisions link1="kp0093_1_165_kp0047-01_axisintersectionhalfsm" link2="kp0093_1_237_kp0066-01_endarmhubbottom" reason="Never" />
+    <disable_collisions link1="kp0093_1_165_kp0047-01_axisintersectionhalfsm" link2="kp0093_1_24_kp0006-01_baselite" reason="Never" />
+    <disable_collisions link1="kp0093_1_165_kp0047-01_axisintersectionhalfsm" link2="kp0093_1_2_kp0070-01_endaxishubc" reason="Never" />
+    <disable_collisions link1="kp0093_1_165_kp0047-01_axisintersectionhalfsm" link2="kp0093_1_301_kp0053-01_compositebarshoulder" reason="Never" />
+    <disable_collisions link1="kp0093_1_165_kp0047-01_axisintersectionhalfsm" link2="kp0093_1_322_kp0079-01_diffa2codediskendstopfilled" reason="Never" />
+    <disable_collisions link1="kp0093_1_165_kp0047-01_axisintersectionhalfsm" link2="kp0093_1_33_kp0021-01_motorendcappivot" reason="Never" />
+    <disable_collisions link1="kp0093_1_165_kp0047-01_axisintersectionhalfsm" link2="kp0093_1_48_kp0048-01_axisintersectionhalfsm_b" reason="Adjacent" />
+    <disable_collisions link1="kp0093_1_165_kp0047-01_axisintersectionhalfsm" link2="kp0093_1_87_kp0086-01_outterfrontdifferentialgear" reason="Never" />
+    <disable_collisions link1="kp0093_1_183_kp0013-01_mainpivotv2" link2="kp0093_1_185_kp0005-01_botbasestatorbracket" reason="Never" />
+    <disable_collisions link1="kp0093_1_183_kp0013-01_mainpivotv2" link2="kp0093_1_186_kp0093-01_toolinterface" reason="Never" />
+    <disable_collisions link1="kp0093_1_183_kp0013-01_mainpivotv2" link2="kp0093_1_230_kp0028-01_armbodybottom" reason="Adjacent" />
+    <disable_collisions link1="kp0093_1_183_kp0013-01_mainpivotv2" link2="kp0093_1_237_kp0066-01_endarmhubbottom" reason="Never" />
+    <disable_collisions link1="kp0093_1_183_kp0013-01_mainpivotv2" link2="kp0093_1_24_kp0006-01_baselite" reason="Never" />
+    <disable_collisions link1="kp0093_1_183_kp0013-01_mainpivotv2" link2="kp0093_1_2_kp0070-01_endaxishubc" reason="Never" />
+    <disable_collisions link1="kp0093_1_183_kp0013-01_mainpivotv2" link2="kp0093_1_301_kp0053-01_compositebarshoulder" reason="Never" />
+    <disable_collisions link1="kp0093_1_183_kp0013-01_mainpivotv2" link2="kp0093_1_322_kp0079-01_diffa2codediskendstopfilled" reason="Never" />
+    <disable_collisions link1="kp0093_1_183_kp0013-01_mainpivotv2" link2="kp0093_1_33_kp0021-01_motorendcappivot" reason="Adjacent" />
+    <disable_collisions link1="kp0093_1_183_kp0013-01_mainpivotv2" link2="kp0093_1_48_kp0048-01_axisintersectionhalfsm_b" reason="Never" />
+    <disable_collisions link1="kp0093_1_183_kp0013-01_mainpivotv2" link2="kp0093_1_87_kp0086-01_outterfrontdifferentialgear" reason="Never" />
+    <disable_collisions link1="kp0093_1_185_kp0005-01_botbasestatorbracket" link2="kp0093_1_186_kp0093-01_toolinterface" reason="Never" />
+    <disable_collisions link1="kp0093_1_185_kp0005-01_botbasestatorbracket" link2="kp0093_1_230_kp0028-01_armbodybottom" reason="Never" />
+    <disable_collisions link1="kp0093_1_185_kp0005-01_botbasestatorbracket" link2="kp0093_1_237_kp0066-01_endarmhubbottom" reason="Never" />
+    <disable_collisions link1="kp0093_1_185_kp0005-01_botbasestatorbracket" link2="kp0093_1_24_kp0006-01_baselite" reason="Adjacent" />
+    <disable_collisions link1="kp0093_1_185_kp0005-01_botbasestatorbracket" link2="kp0093_1_2_kp0070-01_endaxishubc" reason="Never" />
+    <disable_collisions link1="kp0093_1_185_kp0005-01_botbasestatorbracket" link2="kp0093_1_301_kp0053-01_compositebarshoulder" reason="Never" />
+    <disable_collisions link1="kp0093_1_185_kp0005-01_botbasestatorbracket" link2="kp0093_1_322_kp0079-01_diffa2codediskendstopfilled" reason="Never" />
+    <disable_collisions link1="kp0093_1_185_kp0005-01_botbasestatorbracket" link2="kp0093_1_33_kp0021-01_motorendcappivot" reason="Never" />
+    <disable_collisions link1="kp0093_1_185_kp0005-01_botbasestatorbracket" link2="kp0093_1_48_kp0048-01_axisintersectionhalfsm_b" reason="Never" />
+    <disable_collisions link1="kp0093_1_185_kp0005-01_botbasestatorbracket" link2="kp0093_1_87_kp0086-01_outterfrontdifferentialgear" reason="Never" />
+    <disable_collisions link1="kp0093_1_186_kp0093-01_toolinterface" link2="kp0093_1_230_kp0028-01_armbodybottom" reason="Never" />
+    <disable_collisions link1="kp0093_1_186_kp0093-01_toolinterface" link2="kp0093_1_237_kp0066-01_endarmhubbottom" reason="Never" />
+    <disable_collisions link1="kp0093_1_186_kp0093-01_toolinterface" link2="kp0093_1_24_kp0006-01_baselite" reason="Never" />
+    <disable_collisions link1="kp0093_1_186_kp0093-01_toolinterface" link2="kp0093_1_2_kp0070-01_endaxishubc" reason="Never" />
+    <disable_collisions link1="kp0093_1_186_kp0093-01_toolinterface" link2="kp0093_1_301_kp0053-01_compositebarshoulder" reason="Never" />
+    <disable_collisions link1="kp0093_1_186_kp0093-01_toolinterface" link2="kp0093_1_322_kp0079-01_diffa2codediskendstopfilled" reason="Never" />
+    <disable_collisions link1="kp0093_1_186_kp0093-01_toolinterface" link2="kp0093_1_33_kp0021-01_motorendcappivot" reason="Never" />
+    <disable_collisions link1="kp0093_1_186_kp0093-01_toolinterface" link2="kp0093_1_48_kp0048-01_axisintersectionhalfsm_b" reason="Never" />
+    <disable_collisions link1="kp0093_1_186_kp0093-01_toolinterface" link2="kp0093_1_87_kp0086-01_outterfrontdifferentialgear" reason="Adjacent" />
+    <disable_collisions link1="kp0093_1_230_kp0028-01_armbodybottom" link2="kp0093_1_237_kp0066-01_endarmhubbottom" reason="Never" />
+    <disable_collisions link1="kp0093_1_230_kp0028-01_armbodybottom" link2="kp0093_1_24_kp0006-01_baselite" reason="Never" />
+    <disable_collisions link1="kp0093_1_230_kp0028-01_armbodybottom" link2="kp0093_1_2_kp0070-01_endaxishubc" reason="Never" />
+    <disable_collisions link1="kp0093_1_230_kp0028-01_armbodybottom" link2="kp0093_1_301_kp0053-01_compositebarshoulder" reason="Adjacent" />
+    <disable_collisions link1="kp0093_1_230_kp0028-01_armbodybottom" link2="kp0093_1_322_kp0079-01_diffa2codediskendstopfilled" reason="Never" />
+    <disable_collisions link1="kp0093_1_230_kp0028-01_armbodybottom" link2="kp0093_1_33_kp0021-01_motorendcappivot" reason="Never" />
+    <disable_collisions link1="kp0093_1_230_kp0028-01_armbodybottom" link2="kp0093_1_48_kp0048-01_axisintersectionhalfsm_b" reason="Never" />
+    <disable_collisions link1="kp0093_1_230_kp0028-01_armbodybottom" link2="kp0093_1_87_kp0086-01_outterfrontdifferentialgear" reason="Never" />
+    <disable_collisions link1="kp0093_1_237_kp0066-01_endarmhubbottom" link2="kp0093_1_24_kp0006-01_baselite" reason="Never" />
+    <disable_collisions link1="kp0093_1_237_kp0066-01_endarmhubbottom" link2="kp0093_1_2_kp0070-01_endaxishubc" reason="Never" />
+    <disable_collisions link1="kp0093_1_237_kp0066-01_endarmhubbottom" link2="kp0093_1_301_kp0053-01_compositebarshoulder" reason="Never" />
+    <disable_collisions link1="kp0093_1_237_kp0066-01_endarmhubbottom" link2="kp0093_1_322_kp0079-01_diffa2codediskendstopfilled" reason="Never" />
+    <disable_collisions link1="kp0093_1_237_kp0066-01_endarmhubbottom" link2="kp0093_1_33_kp0021-01_motorendcappivot" reason="Never" />
+    <disable_collisions link1="kp0093_1_237_kp0066-01_endarmhubbottom" link2="kp0093_1_48_kp0048-01_axisintersectionhalfsm_b" reason="Adjacent" />
+    <disable_collisions link1="kp0093_1_237_kp0066-01_endarmhubbottom" link2="kp0093_1_87_kp0086-01_outterfrontdifferentialgear" reason="Never" />
+    <disable_collisions link1="kp0093_1_24_kp0006-01_baselite" link2="kp0093_1_2_kp0070-01_endaxishubc" reason="Never" />
+    <disable_collisions link1="kp0093_1_24_kp0006-01_baselite" link2="kp0093_1_301_kp0053-01_compositebarshoulder" reason="Never" />
+    <disable_collisions link1="kp0093_1_24_kp0006-01_baselite" link2="kp0093_1_322_kp0079-01_diffa2codediskendstopfilled" reason="Never" />
+    <disable_collisions link1="kp0093_1_24_kp0006-01_baselite" link2="kp0093_1_33_kp0021-01_motorendcappivot" reason="Adjacent" />
+    <disable_collisions link1="kp0093_1_24_kp0006-01_baselite" link2="kp0093_1_48_kp0048-01_axisintersectionhalfsm_b" reason="Never" />
+    <disable_collisions link1="kp0093_1_24_kp0006-01_baselite" link2="kp0093_1_87_kp0086-01_outterfrontdifferentialgear" reason="Never" />
+    <disable_collisions link1="kp0093_1_2_kp0070-01_endaxishubc" link2="kp0093_1_301_kp0053-01_compositebarshoulder" reason="Never" />
+    <disable_collisions link1="kp0093_1_2_kp0070-01_endaxishubc" link2="kp0093_1_322_kp0079-01_diffa2codediskendstopfilled" reason="Adjacent" />
+    <disable_collisions link1="kp0093_1_2_kp0070-01_endaxishubc" link2="kp0093_1_33_kp0021-01_motorendcappivot" reason="Never" />
+    <disable_collisions link1="kp0093_1_2_kp0070-01_endaxishubc" link2="kp0093_1_48_kp0048-01_axisintersectionhalfsm_b" reason="Never" />
+    <disable_collisions link1="kp0093_1_2_kp0070-01_endaxishubc" link2="kp0093_1_87_kp0086-01_outterfrontdifferentialgear" reason="Never" />
+    <disable_collisions link1="kp0093_1_301_kp0053-01_compositebarshoulder" link2="kp0093_1_322_kp0079-01_diffa2codediskendstopfilled" reason="Never" />
+    <disable_collisions link1="kp0093_1_301_kp0053-01_compositebarshoulder" link2="kp0093_1_33_kp0021-01_motorendcappivot" reason="Never" />
+    <disable_collisions link1="kp0093_1_301_kp0053-01_compositebarshoulder" link2="kp0093_1_48_kp0048-01_axisintersectionhalfsm_b" reason="Adjacent" />
+    <disable_collisions link1="kp0093_1_301_kp0053-01_compositebarshoulder" link2="kp0093_1_87_kp0086-01_outterfrontdifferentialgear" reason="Never" />
+    <disable_collisions link1="kp0093_1_322_kp0079-01_diffa2codediskendstopfilled" link2="kp0093_1_33_kp0021-01_motorendcappivot" reason="Never" />
+    <disable_collisions link1="kp0093_1_322_kp0079-01_diffa2codediskendstopfilled" link2="kp0093_1_48_kp0048-01_axisintersectionhalfsm_b" reason="Never" />
+    <disable_collisions link1="kp0093_1_322_kp0079-01_diffa2codediskendstopfilled" link2="kp0093_1_87_kp0086-01_outterfrontdifferentialgear" reason="Never" />
+    <disable_collisions link1="kp0093_1_33_kp0021-01_motorendcappivot" link2="kp0093_1_48_kp0048-01_axisintersectionhalfsm_b" reason="Never" />
+    <disable_collisions link1="kp0093_1_33_kp0021-01_motorendcappivot" link2="kp0093_1_87_kp0086-01_outterfrontdifferentialgear" reason="Never" />
+    <disable_collisions link1="kp0093_1_48_kp0048-01_axisintersectionhalfsm_b" link2="kp0093_1_87_kp0086-01_outterfrontdifferentialgear" reason="Never" />
+</robot>

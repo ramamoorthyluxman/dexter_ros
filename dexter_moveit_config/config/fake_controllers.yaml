@@ -1,0 +1,12 @@
+controller_list:
+  - name: fake_dexter_controller
+    type: $(arg execution_type)
+    joints:
+      - J1
+      - J2
+      - J3
+      - J4
+      - J5
+initial:  # Define initial robot poses.
+  - group: dexter
+    pose: home
